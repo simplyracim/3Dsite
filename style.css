@@ -1,6 +1,6 @@
 .long-scroll {
-    height: 200vh; /* This makes the user scroll twice the screen height */
-    background: linear-gradient(to bottom, #111111 10%, #141C29 20%, #182742, #1B315A, #1e3c72, #2a5298, #982a2a 90%);
+    height: 400vh; /* This makes the user scroll twice the screen height */
+    background: linear-gradient(to bottom, #111111 10%, #141C29 20%, #182742, #1B315A, #1e3c72, #2a5298, #02679f 90%);
 }
 
 body, html {
@@ -22,6 +22,7 @@ body, html {
 
 .three-container {
     height: 100vh;
+    background-image: url("assets/sunset_intermission.jpg");
 }
 
 canvas {
