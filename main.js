@@ -7,11 +7,38 @@ const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById("three-container").appendChild(renderer.domElement);
 
-    // Create a rotating mountain (simple geometry for now)
-    const geometry = new THREE.ConeGeometry(2, 3, 32);
-    const material = new THREE.MeshStandardMaterial({ color: 0x8b5a2b, wireframe: false });
-    const mountain = new THREE.Mesh(geometry, material);
-    scene.add(mountain);
+/// Create a base mountain shape with subdivisions for more detail
+const geometry = new THREE.IcosahedronGeometry(2, 3); // More subdivisions = more ruggedness
+
+// Modify the vertex positions to create a mountain shape
+const positions = geometry.attributes.position.array;
+for (let i = 0; i < positions.length; i += 3) {
+    let x = positions[i];
+    let y = positions[i + 1];
+    let z = positions[i + 2];
+
+    // Make the peak sharper by reducing points near the top
+    let heightFactor = Math.pow((y + 2) / 4, 2); // Makes the peak sharper while keeping the base wider
+
+    // Apply randomness (stronger at the top)
+    positions[i] += (Math.random() - 0.5) * heightFactor * 0.5; // X-axis
+    positions[i + 1] += (Math.random() - 0.5) * heightFactor * 1.5; // Y-axis (taller peaks)
+    positions[i + 2] += (Math.random() - 0.5) * heightFactor * 0.5; // Z-axis
+}
+
+// Tell Three.js to update the modified geometry
+geometry.attributes.position.needsUpdate = true;
+
+// Create material with flat shading for a rougher look
+const material = new THREE.MeshStandardMaterial({
+    color: 0x8b5a2b, // Brownish mountain
+    flatShading: true
+});
+
+// Create and position the mountain
+const mountain = new THREE.Mesh(geometry, material);
+mountain.position.set(0, -1, 0); // Adjust position so it sits properly
+scene.add(mountain);
 
 /*
 // Load .obj file
