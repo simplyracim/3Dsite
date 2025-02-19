@@ -1,4 +1,5 @@
-English Version:
+-----ENGLISH-----
+
 Welcome to 3DSite!
 
 3DSite is a website designed for managing internship applications, featuring both frontend and backend applications.
@@ -10,7 +11,9 @@ Since I’m not sure how to write a proper README, I’ll simply list the key po
 This project follows an SPA (Single Page Application) architecture, meaning that every page is loaded into a single main .html file using JavaScript scripts for each page (e.g., login, enterprises, etc.).
 We will utilize the Three.js library as much as possible to incorporate 3D decorative elements into the site.
 No frameworks are used in this project, as per our school's requirements.
-Version Française :
+
+-----FRANCAIS-----
+
 Bienvenue sur 3DSite !
 
 3DSite est un site web conçu pour la gestion des candidatures de stages, intégrant des applications frontend et backend.
