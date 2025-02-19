@@ -12,6 +12,8 @@ This project follows an SPA (Single Page Application) architecture, meaning that
 We will utilize the Three.js library as much as possible to incorporate 3D decorative elements into the site.
 No frameworks are used in this project, as per our school's requirements.
 
+- Note : This project does if opening index.html directly, it needs to be accessed with VSCode's "Live Server" extension, or similar.
+
 -----FRANCAIS-----
 
 Bienvenue sur 3DSite !
@@ -25,3 +27,5 @@ N’étant pas sûr de savoir comment rédiger un README correctement, je vais s
 Ce projet suit une architecture SPA (Single Page Application), ce qui signifie que chaque page est chargée dans un seul fichier .html principal grâce à des scripts JavaScript dédiés à chaque page (connexion, entreprises, etc.).
 Nous utiliserons autant que possible la bibliothèque Three.js pour intégrer des éléments décoratifs en 3D sur le site.
 Aucun framework n’est utilisé dans ce projet, conformément aux exigences de notre école.
+
+- Note : Ce projet ne marche pas si index.html est ouvert directement, il faut utiliser l'extension "Live Server" de VSCode, ou similaire.
