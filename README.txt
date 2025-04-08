@@ -28,7 +28,7 @@ Mont Célestage is an interactive 3D web platform designed for managing internsh
    ```
 4. Set up a local web server environment (XAMPP, WAMP, etc.)
 5. Place the project files in your web server directory
-
+6.Name the database webdev when you import it in phpmyadmin
 ## Usage
 1. Start the development server:
    ```
