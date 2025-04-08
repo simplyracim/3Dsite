@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Entreprises</title>
+    <link rel="stylesheet" href="src/entreprises.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div id="three-container"></div>
+    <div class="container">
+        <h1>Liste des Entreprises</h1>
+        <ul>
+            <li><button id="searchBtn"><i class="fas fa-search"></i>Rechercher une entreprise</button></li>
+            <li><button id="createBtn" style="display: none;"><i class="fas fa-plus-circle"></i>Créer une entreprise</button></li>
+            <li><button id="editBtn" style="display: none;"><i class="fas fa-edit"></i>Modifier une entreprise</button></li>
+            <li><button id="deleteBtn" style="display: none;"><i class="fas fa-trash-alt"></i>Supprimer une entreprise</button></li>
+            <li><button id="evaluateBtn" style="display: none;"><i class="fas fa-star"></i>Évaluer une entreprise</button></li>
+            <li class="home-btn-container"><button id="homeBtn"><i class="fas fa-home"></i>Retour à l'accueil</button></li>
+        </ul>
+    </div>
+    
+    <div id="dashboard" class="dashboard">
+        <h2>Vue Globale des Entreprises</h2>
+        <div class="dashboard-controls">
+            <div class="dashboard-search">
+                <input type="text" id="dashboard-search-input" placeholder="Rechercher une entreprise...">
+                <button id="dashboard-search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="filter-section">
+                <label for="sort-options">Trier par:</label>
+                <select id="sort-options" class="dashboard-select">
+                    <option value="alphabetical">Alphabétique</option>
+                    <option value="email">Email</option>
+                    <option value="rating">Évaluation moyenne</option>
+                </select>
+                <button id="refresh-dashboard" class="dashboard-btn"><i class="fas fa-sync-alt"></i> Rafraîchir</button>
+            </div>
+        </div>
+        <div class="dashboard-content">
+            <div id="companies-list" class="offers-list">
+                <!-- Les entreprises seront chargées ici dynamiquement -->
+                <div class="loader">Chargement des entreprises...</div>
+            </div>
+            <div id="dashboard-pagination" class="dashboard-pagination">
+                <!-- Pagination ajoutée dynamiquement -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="src/entreprises.js"></script>
+</body>
+</html>

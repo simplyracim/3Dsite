@@ -1,0 +1,53 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Exclude large 3D model files
+*.obj
+*.fbx
+*.glb
+*.gltf
+*.mtl
+*.stl
+*.3ds
+*.dae
+*.blend
+*.zip
+*.rar
+*.7z
+
+# Exclude large binary files
+*.bin
+*.dat
+*.raw
+*.vox
+*.vrm
+*.ply
+
+# Exclude specific directories containing 3D models
+models/
+assets/models/
+3d_models/
+mountains/
+objects/

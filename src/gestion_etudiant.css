@@ -1,0 +1,360 @@
+/* Fix font issues and improve styling for student management page */
+
+/* Override font for specific elements to ensure readability with NoitaBlackletter */
+#stats-container h2,
+#stats-container h3,
+#stats-container p,
+#stats-container h4,
+#modal-container label,
+#modal-container select,
+#modal-container option {
+    font-family: 'NoitaBlackletter', serif !important;
+    letter-spacing: 0.05em;
+}
+
+/* Font size adjustments for student information */
+#stats-container h2 {
+    font-size: 1.8em;
+}
+
+#stats-container h3 {
+    font-size: 1.2em;
+}
+
+#stats-container p {
+    font-size: 0.9em;
+}
+
+#stats-container h4 {
+    font-size: 1em;
+}
+
+/* Keep buttons with Arial for better usability */
+#stats-container button,
+#modal-container input,
+#modal-container button {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* Student card specific styling */
+#stats-container div[style*="border: 1px solid #6D4C41"] {
+    line-height: 1.4;
+}
+
+#stats-container div[style*="border: 1px solid #6D4C41"] h3 {
+    font-size: 1.1em;
+}
+
+#stats-container div[style*="border: 1px solid #6D4C41"] p {
+    font-size: 0.85em;
+}
+
+/* Improved title styling */
+h1.title {
+    font-family: 'NoitaBlackletter', serif;
+    text-align: center;
+    color: #6D4C41;
+    margin: 20px 0;
+    font-size: 2.5em;
+}
+
+/* Button container styling */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+/* Modal styling improvements */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.modal-content {
+    background-color: #FFF8E1;
+    width: 70%;
+    max-width: 350px;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid #8B5A2B;
+}
+
+/* Modal title */
+#modal-title {
+    font-size: 1.4em;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.close-btn {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #8B5A2B;
+    margin-top: -5px;
+}
+
+.close-btn:hover {
+    color: #6D4C41;
+}
+
+/* Form styling */
+#student-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+#student-form label {
+    color: #6D4C41;
+    font-weight: bold;
+    margin-bottom: -5px;
+    font-size: 0.9em;
+}
+
+#student-form input,
+#student-form select {
+    padding: 6px 10px;
+    border: 1px solid #8B5A2B;
+    border-radius: 4px;
+    background-color: #FFF8E1;
+    color: #333;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif !important;
+    height: 32px;
+}
+
+#student-form small {
+    font-size: 0.7em !important;
+    margin-top: -5px;
+    margin-bottom: 3px;
+    font-family: Arial, Helvetica, sans-serif !important;
+    line-height: 1.2;
+}
+
+#student-form button {
+    margin-top: 8px;
+    padding: 8px 16px;
+    background-color: #8B5A2B;
+    color: #FFF8E1;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    align-self: center;
+    min-width: 100px;
+    height: 32px;
+}
+
+#student-form button:hover {
+    background-color: #6D4C41;
+}
+
+/* Stats container styling */
+#stats-container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(245, 222, 179, 0.3);
+    border-radius: 10px;
+    min-height: 200px;
+}
+
+/* Form error styling */
+.form-error {
+    color: #D32F2F;
+    background-color: #FFEBEE;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 0.9em;
+    margin-top: 10px;
+    border-left: 4px solid #D32F2F;
+}
+
+/* Success message styling */
+.success-message {
+    color: #2E7D32;
+    background-color: #E8F5E9;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    border-left: 4px solid #2E7D32;
+    margin: 15px 0;
+}
+
+.success-message p {
+    font-family: 'NoitaBlackletter', serif !important;
+    font-size: 1.1em;
+    margin: 0;
+    letter-spacing: 0.05em;
+    color: #2E7D32;
+}
+
+/* Visibility classes */
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: flex !important;
+}
+
+/* Student grid responsiveness */
+@media (min-width: 768px) {
+    #stats-container div[style*="display: grid"] {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    #stats-container div[style*="display: grid"] {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Error message styling */
+.error-message {
+    color: #D32F2F;
+    text-align: center;
+    font-weight: bold;
+    padding: 15px;
+    background-color: #FFEBEE;
+    border-radius: 5px;
+    border-left: 5px solid #D32F2F;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    text-align: center;
+    padding: 20px;
+    font-family: 'NoitaBlackletter', serif !important;
+    font-size: 0.9em;
+}
+
+/* Delete confirmation styling */
+#confirmation {
+    background-color: #FFEBEE;
+    border: 1px solid #D32F2F;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+#confirmation p:first-child {
+    color: #D32F2F;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 0.9em;
+}
+
+#confirmation p:last-of-type {
+    font-family: 'NoitaBlackletter', serif !important;
+    text-align: center;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+#confirmation div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#btn-cancel {
+    background-color: #9E9E9E !important;
+    flex: 1;
+}
+
+#btn-confirm-delete {
+    background-color: #D32F2F !important;
+    flex: 1;
+}
+
+/* Select element styling */
+#student-select,
+#delete-student-select {
+    padding: 8px;
+    border: 1px solid #8B5A2B;
+    border-radius: 4px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 0.9em;
+    background-color: #FFF8E1;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Additional responsive styles */
+@media (max-width: 576px) {
+    /* Student card styling */
+    #stats-container div[style*="border: 1px solid #6D4C41"] {
+        padding: 8px;
+    }
+    
+    #stats-container div[style*="border: 1px solid #6D4C41"] h3 {
+        font-size: 1em;
+    }
+    
+    #stats-container div[style*="border: 1px solid #6D4C41"] p {
+        font-size: 0.8em;
+    }
+    
+    /* Form adjustments */
+    #student-form {
+        gap: 5px;
+    }
+    
+    /* Button sizing for mobile */
+    .button-container button {
+        font-size: 1rem;
+        padding: 10px 15px;
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    /* Modal adjustments */
+    .modal-content {
+        max-width: 100%;
+        width: 95%;
+        padding: 15px 10px;
+    }
+    
+    #modal-title {
+        font-size: 1.2em;
+    }
+    
+    /* Confirmation dialog */
+    #confirmation div {
+        flex-direction: column;
+    }
+    
+    #btn-cancel, #btn-confirm-delete {
+        margin: 5px 0;
+    }
+}
+
+/* Make sure grid items stretch appropriately */
+@media (max-width: 500px) {
+    #stats-container div[style*="display: grid"] {
+        grid-template-columns: 1fr;
+    }
+} 

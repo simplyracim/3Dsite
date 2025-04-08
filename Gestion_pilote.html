@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Pilotes</title>
+    <link rel="stylesheet" href="src/styleA.css">
+    <link rel="stylesheet" href="src/gestion_etudiant.css">
+</head>
+<body>
+    <main>
+        <div id="parchment"></div>
+        <div id="contain">
+            <p id="labarum">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Chi_Rho.svg/1200px-Chi_Rho.svg.png" alt="Logo">
+            </p>
+
+            <h1 class="title">Gestion des Pilotes</h1>
+            
+            <!-- Home button -->
+            <div class="home-button-container" style="text-align: center; margin-bottom: 20px;">
+                <a href="/" class="home-button" style="display: inline-block; padding: 10px 20px; background-color: #8B5A2B; color: white; text-decoration: none; border-radius: 5px; font-family: 'NoitaBlackletter', serif;">Retour à la page d'accueil</a>
+            </div>
+
+            <div class="button-container">
+                <button id="btn-chercher">Chercher</button>
+                <button id="btn-supprimer">Supprimer</button>
+                <button id="btn-creer">Créer</button>
+                <button id="btn-modifier">Modifier</button>
+            </div>
+
+            <!-- Stats Container -->
+            <div id="stats-container"></div>
+
+            <!-- Modal -->
+            <div id="modal-container" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2 id="modal-title">Détails du pilote</h2>
+
+                    <form id="student-form">
+                        <!-- Form will be dynamically generated -->
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <svg>
+        <filter id="wavy2">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="5" seed="1" result="Turbulence"/>
+            <feDisplacementMap in="SourceGraphic" in2="Turbulence" scale="20" />
+        </filter>
+    </svg>
+
+    <script src="src/Gestion_pilote.js" defer></script>
+    <script src="src/font_adjuster.js" defer></script>
+</body>
+</html>

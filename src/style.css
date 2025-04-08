@@ -1,0 +1,1215 @@
+@font-face {
+    font-family: 'NoitaBlackletter';
+    src: url('/assets/fonts/NoitaBlackletter-Regular.otf') format('opentype'),
+         url('/assets/fonts/NoitaBlackletter-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow: hidden;
+}
+
+body.scrollable {
+    overflow-y: auto;
+}
+
+.long-scroll {
+    height: 400vh; /* This makes the user scroll twice the screen height */
+    background: linear-gradient(to bottom, 
+        #111111 0%,
+        #141C29 20%,
+        #182742 40%,
+        #1B315A 60%,
+        #1e3c72 80%,
+        #2a5298 90%,
+        #02679f 100%
+    );
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom, #05204f, #083064, #0a4585, #0c67a3);
+    min-height: 100vh;
+    position: relative;
+}
+
+.welcome {
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Changed to column to stack elements vertically */
+    align-items: center;
+    justify-content: flex-start; /* Start from the top, not center */
+    padding-top: 15vh; /* Add some padding at the top */
+    font-size: 2rem;
+    background: #111111;
+    color: white;
+}
+
+.three-container {
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(to bottom, 
+        #111111 0%,
+        #141C29 20%,
+        #182742 40%,
+        #1B315A 60%,
+        #1e3c72 80%,
+        #2a5298 90%,
+        #02679f 100%
+    );
+}
+
+.three-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom,
+        rgba(17, 17, 17, 0.1) 0%,
+        rgba(20, 28, 41, 0.05) 20%,
+        rgba(24, 39, 66, 0.02) 40%,
+        rgba(27, 49, 90, 0) 60%,
+        rgba(30, 60, 114, 0) 80%,
+        rgba(42, 82, 152, 0) 90%,
+        rgba(2, 103, 159, 0) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+canvas {
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+.welcome-text {
+    font-family: 'NoitaBlackletter', sans-serif;
+    font-size: 1.8rem;
+    color: #b8d0ff;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(78, 173, 254, 0.3);
+}
+
+/* Police de caractères et style pour le titre principal */
+.main-title {
+    text-align: center;
+    font-family: 'NoitaBlackletter', sans-serif;
+    font-size: 52px; /* Slightly larger */
+    color: white; /* Changed to white to match the dark background */
+    margin-bottom: 0;
+    text-shadow: 0 0 10px rgba(78, 173, 254, 0.5); /* Subtle blue glow */
+}
+
+/* Espace entre le titre et le formulaire */
+.spacer {
+    height: 3cm; /* Espace de 3 cm */
+}
+
+/* Styles pour le formulaire de login */
+.login-form {
+    background-color: rgba(14, 30, 58, 0.8); /* Darkened with a blue tint to match theme */
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(30, 60, 114, 0.3);
+    max-width: 400px;
+    margin: 0 auto;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    font-family: 'NoitaBlackletter', sans-serif;
+    border: 1px solid rgba(78, 173, 254, 0.2); /* Subtle blue border */
+}
+
+.login-form h2 {
+    margin-top: 0;
+    color: white; /* Changed to white */
+    text-align: center;
+    font-family: 'NoitaBlackletter', sans-serif;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.form-group {
+    margin-bottom: 20px;
+    width: 100%; /* Assure que le groupe prend toute la largeur */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre les éléments horizontalement */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #b8d0ff;
+    letter-spacing: 0.5px;
+    width: 90%; /* Prend 90% de la largeur du conteneur parent */
+    text-align: left; /* Le texte reste aligné à gauche */
+    font-size: 19px; /* Taille de police réduite */
+    font-family: 'NoitaBlackletter', sans-serif;
+}
+
+.form-group input {
+    width: 90%;
+    padding: 10px; 
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(78, 173, 254, 0.3);
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: 'NoitaBlackletter', sans-serif;
+    color: white;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(78, 173, 254, 0.7);
+    outline: none;
+    box-shadow: 0 0 8px rgba(78, 173, 254, 0.4);
+}
+
+.login-btn {
+    background-color: #1e5799;
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 90%;
+    font-size: 16px;
+    transition: all 0.3s;
+    font-family: 'NoitaBlackletter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    display: block;
+}
+
+.login-btn:hover {
+    background-color: #2a6fc5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Classe pour cacher le formulaire */
+.login-form.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px); /* Slight movement during fade */
+}
+
+/* Placeholder color */
+::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Popup Menu Styles */
+.popup-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(14, 30, 58, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(30, 60, 114, 0.3);
+    font-family: 'NoitaBlackletter', sans-serif;
+    border: 1px solid rgba(78, 173, 254, 0.2);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, width 0.3s ease, height 0.3s ease, font-size 0.3s ease;
+    pointer-events: none;
+    z-index: 1000;
+    max-height: 80vh;
+    overflow-y: auto;
+    width: 300px; /* Largeur par défaut */
+}
+
+.popup-menu.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.popup-menu h3 {
+    color: white;
+    margin: 0 0 15px 0;
+    text-align: center;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px rgba(78, 173, 254, 0.3);
+    transition: font-size 0.3s ease;
+}
+
+.popup-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popup-menu li {
+    margin: 10px 0;
+    opacity: 0;
+    transition: opacity 0.3s ease, margin 0.3s ease;
+}
+
+.popup-menu.visible li {
+    opacity: 1;
+}
+
+.popup-menu a {
+    color: #b8d0ff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease, font-size 0.3s ease;
+}
+
+.popup-menu a:hover {
+    background-color: rgba(78, 173, 254, 0.2);
+    color: white;
+    transform: translateX(5px);
+}
+
+.popup-menu .admin-only,
+.popup-menu .admin-pilote-only {
+    display: none;
+}
+
+.popup-menu.visible .admin-only,
+.popup-menu.visible .admin-pilote-only {
+    display: block;
+}
+
+/* Add specific visibility for admin and pilote */
+.popup-menu.visible[data-user-type="admin"] .admin-only,
+.popup-menu.visible[data-user-type="admin"] .admin-pilote-only,
+.popup-menu.visible[data-user-type="pilote"] .admin-pilote-only {
+    display: block;
+}
+
+.popup-menu.visible[data-user-type="pilote"] .admin-only {
+    display: none;
+}
+
+.popup-menu.visible[data-user-type="etudiant"] .admin-only,
+.popup-menu.visible[data-user-type="etudiant"] .admin-pilote-only {
+    display: none;
+}
+
+.logout-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #ff0000;
+}
+
+/* Styles pour le dashboard des statistiques */
+.dashboard-container,
+.dashboard-header,
+.dashboard-content,
+.stats-section,
+.chart-container,
+.wishlist-top,
+.wishlist-item {
+    /* Ces styles seront supprimés */
+}
+
+/* Style pour le bouton des statistiques */
+.stats-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.stats-button:hover {
+    background-color: #45a049;
+}
+
+.stats-button i {
+    font-size: 18px;
+}
+
+/* Styles pour les boutons de la page Gestion des Offres */
+.container ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.container ul li {
+    text-align: center;
+}
+
+.container ul button {
+    width: 100%;
+    padding: 15px 25px;
+    font-size: 16px;
+    background: rgba(76, 175, 80, 0.2);
+    border: 2px solid rgba(76, 175, 80, 0.5);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.container ul button:hover {
+    background: rgba(76, 175, 80, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.container ul button:active {
+    transform: translateY(0);
+}
+
+.stats-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: rgba(76, 175, 80, 0.2);
+    border: 2px solid rgba(76, 175, 80, 0.5);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stats-button:hover {
+    background: rgba(76, 175, 80, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.container h1 {
+    text-align: center;
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.message {
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 4px;
+    text-align: center;
+    animation: slideIn 0.3s ease-out;
+}
+
+.message.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.message.error {
+    background-color: #f44336;
+    color: white;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Styles pour la boîte de profil et wishlist */
+.profile-box {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    background-color: rgba(14, 30, 58, 0.9);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 30px rgba(30, 60, 114, 0.4);
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid rgba(78, 173, 254, 0.3);
+    color: white;
+    z-index: 990;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease, width 0.3s ease, height 0.3s ease, max-width 0.3s ease, padding 0.3s ease;
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.profile-box.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.profile-section, .wishlist-section {
+    margin-bottom: 25px;
+}
+
+.profile-box h2 {
+    font-family: 'NoitaBlackletter', sans-serif;
+    color: #b8d0ff;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px rgba(78, 173, 254, 0.3);
+    border-bottom: 1px solid rgba(78, 173, 254, 0.2);
+    padding-bottom: 10px;
+    transition: font-size 0.3s ease, margin-bottom 0.3s ease;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile-avatar {
+    margin-right: 25px;
+    font-size: 4rem;
+    color: #4CAF50;
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+.profile-details {
+    flex: 1;
+}
+
+.profile-details p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.profile-details p i {
+    margin-right: 10px;
+    color: #4CAF50;
+    width: 20px;
+    text-align: center;
+}
+
+.wishlist-items {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.wishlist-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid rgba(78, 173, 254, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wishlist-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.wishlist-item h3 {
+    margin-top: 0;
+    color: #b8d0ff;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.wishlist-item p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.wishlist-item p.company {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.wishlist-item p.competences {
+    font-style: italic;
+}
+
+.wishlist-item .view-details {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: rgba(76, 175, 80, 0.2);
+    border: 1px solid rgba(76, 175, 80, 0.5);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.wishlist-item .view-details:hover {
+    background-color: rgba(76, 175, 80, 0.4);
+    transform: translateY(-2px);
+}
+
+.wishlist-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-btn {
+    background-color: rgba(76, 175, 80, 0.2);
+    border: 1px solid rgba(76, 175, 80, 0.5);
+    color: white;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination-btn:hover {
+    background-color: rgba(76, 175, 80, 0.4);
+}
+
+.pagination-btn.active {
+    background-color: rgba(76, 175, 80, 0.6);
+    font-weight: bold;
+}
+
+.pagination-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.loader {
+    text-align: center;
+    padding: 20px;
+    color: #b8d0ff;
+    font-style: italic;
+}
+
+@media (min-width: 768px) {
+    .wishlist-items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-avatar {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .wishlist-items {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* Enhanced responsive design for mobile */
+@media (max-width: 1024px) {
+    .main-title {
+        font-size: 48px;
+    }
+    
+    .welcome-text {
+        font-size: 1.6rem;
+    }
+    
+    .spacer {
+        height: 2.5cm;
+    }
+    
+    .profile-box {
+        width: 90%;
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 42px;
+        margin-top: 10px;
+    }
+    
+    .welcome-text {
+        font-size: 1.4rem;
+    }
+    
+    .spacer {
+        height: 2cm;
+    }
+    
+    .welcome {
+        padding-top: 12vh;
+    }
+    
+    .login-form {
+        width: 90%;
+        max-width: 350px;
+    }
+    
+    .popup-menu {
+        width: 80%;
+        right: 10%;
+        left: auto;
+    }
+    
+    .profile-box {
+        padding: 15px;
+    }
+    
+    .logout-btn {
+        padding: 10px 18px;
+    }
+    
+    /* Improve 3D container sizing and positioning */
+    .three-container {
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    canvas {
+        touch-action: none; /* Prevent touch actions from interfering with 3D interactions */
+    }
+    
+    /* Make sure popups work correctly on smaller screens */
+    .popup-menu.visible {
+        transform: translateY(0);
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+    
+    /* Fix menu item sizing for easier touch */
+    .popup-menu li {
+        margin: 12px 0;
+    }
+    
+    .popup-menu a {
+        padding: 12px 10px;
+        display: block;
+    }
+    
+    /* Adjust fixed position elements to avoid overlapping content */
+    .profile-box.visible {
+        height: auto;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (max-width: 576px) {
+    .main-title {
+        font-size: 36px;
+    }
+    
+    .welcome-text {
+        font-size: 1.2rem;
+    }
+    
+    .spacer {
+        height: 1.5cm;
+    }
+    
+    .welcome {
+        padding-top: 10vh;
+    }
+    
+    .login-form {
+        padding: 15px;
+    }
+    
+    .login-form h2 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+    
+    .form-group label {
+        font-size: 16px;
+    }
+    
+    .form-group input {
+        padding: 8px;
+    }
+    
+    .login-btn {
+        padding: 10px;
+        font-size: 15px;
+    }
+    
+    .popup-menu {
+        width: 90%;
+        padding: 15px;
+        right: 5%;
+    }
+    
+    .popup-menu h3 {
+        font-size: 1.2rem;
+    }
+    
+    .popup-menu a {
+        font-size: 1rem;
+        padding: 8px 0;
+    }
+    
+    .profile-box h2 {
+        font-size: 1.4rem;
+    }
+    
+    .profile-avatar {
+        font-size: 3rem;
+    }
+    
+    .profile-details p {
+        font-size: 0.9rem;
+    }
+    
+    .wishlist-item h3 {
+        font-size: 1.1rem;
+    }
+    
+    .wishlist-item p {
+        font-size: 0.85rem;
+    }
+    
+    .pagination-btn {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+    
+    .logout-btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+    
+    /* Fix 3D container for very small screens */
+    .three-container {
+        height: 100vh;
+    }
+    
+    /* Profile box adjustments */
+    .profile-box {
+        width: 95%;
+        padding: 15px 10px;
+    }
+    
+    /* Improve scrolling on mobile */
+    body.scrollable {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Make logout button more visible and easier to tap */
+    .logout-btn {
+        width: 90%;
+        max-width: 200px;
+        margin: 10px auto;
+    }
+    
+    /* Prevent auto-zoom on input focus on mobile */
+    input[type="email"],
+    input[type="password"],
+    input[type="text"] {
+        font-size: 16px; /* Minimum size to prevent zoom on iOS */
+    }
+    
+    /* Improve form layout for small screens */
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    /* Adjust button sizes for easier tapping */
+    .login-btn {
+        height: 44px; /* Recommended minimum touch target size */
+    }
+    
+    /* Improve form contrast for readability */
+    .login-form {
+        background-color: rgba(14, 30, 58, 0.9); /* Slightly darker for better contrast */
+    }
+    
+    /* Prevent content shifting when keyboard appears */
+    .welcome {
+        height: 100%;
+        min-height: 100vh;
+    }
+}
+
+@media (max-width: 375px) {
+    .main-title {
+        font-size: 30px;
+    }
+    
+    .welcome-text {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .spacer {
+        height: 1cm;
+    }
+    
+    .welcome {
+        padding-top: 8vh;
+    }
+    
+    .login-form h2 {
+        font-size: 1.2rem;
+    }
+    
+    .form-group {
+        margin-bottom: 12px;
+    }
+    
+    .form-group label {
+        margin-bottom: 4px;
+        font-size: 14px;
+    }
+    
+    .profile-box {
+        padding: 10px;
+    }
+    
+    .wishlist-item {
+        padding: 10px;
+    }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .welcome {
+        padding-top: 5vh;
+    }
+    
+    .spacer {
+        height: 0.5cm;
+    }
+    
+    .main-title {
+        font-size: 28px;
+        margin-bottom: 5px;
+    }
+    
+    .welcome-text {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+    
+    .login-form {
+        padding: 12px;
+        max-width: 400px;
+    }
+    
+    .form-group {
+        margin-bottom: 8px;
+    }
+    
+    .login-form h2 {
+        margin-bottom: 10px;
+    }
+    
+    .form-group input {
+        padding: 6px;
+    }
+    
+    .profile-box {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+}
+
+/* Fix touch interactions for interactive elements */
+@media (hover: none) {
+    /* Provide alternative hover effects for touch devices */
+    .popup-menu a:active,
+    .wishlist-item:active,
+    .pagination-btn:active,
+    .login-btn:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Ensure proper form display when virtual keyboard is active */
+@media (max-height: 450px) {
+    .spacer {
+        height: 0.8cm; /* Reduce spacer when keyboard is likely visible */
+    }
+    
+    .welcome {
+        padding-top: 5vh;
+    }
+    
+    .login-form {
+        margin-top: 10px;
+    }
+}
+
+/* Media queries pour adapter les popups à la taille de l'écran */
+@media (max-width: 1200px) {
+    .profile-box {
+        max-width: 700px;
+        padding: 22px;
+    }
+    
+    .profile-box h2 {
+        font-size: 1.7rem;
+    }
+    
+    .popup-menu {
+        width: 280px;
+    }
+    
+    .popup-menu h3 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .profile-box {
+        max-width: 600px;
+        padding: 20px;
+        width: 85%;
+    }
+    
+    .profile-box h2 {
+        font-size: 1.6rem;
+        margin-bottom: 12px;
+    }
+    
+    .popup-menu {
+        width: 260px;
+        padding: 18px;
+    }
+    
+    .popup-menu h3 {
+        font-size: 1.3rem;
+    }
+    
+    .popup-menu a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-box {
+        max-width: 500px;
+        padding: 18px;
+        width: 90%;
+        max-height: 75vh;
+    }
+    
+    .profile-box h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .profile-avatar {
+        font-size: 3.5rem;
+    }
+    
+    .profile-details p {
+        font-size: 1rem;
+    }
+    
+    .popup-menu {
+        width: 240px;
+        padding: 16px;
+        max-height: 70vh;
+        top: 15px;
+        right: 15px;
+    }
+    
+    .popup-menu h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .popup-menu a {
+        font-size: 0.95rem;
+        padding: 7px 12px;
+    }
+    
+    .popup-menu li {
+        margin: 8px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile-box {
+        max-width: 450px;
+        padding: 15px;
+        width: 95%;
+        max-height: 70vh;
+    }
+    
+    .profile-box h2 {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+    }
+    
+    .profile-avatar {
+        font-size: 3rem;
+    }
+    
+    .profile-details p {
+        font-size: 0.9rem;
+    }
+    
+    .popup-menu {
+        width: 220px;
+        padding: 14px;
+        max-height: 65vh;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .popup-menu h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    
+    .popup-menu a {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+    
+    .popup-menu li {
+        margin: 6px 0;
+    }
+    
+    .wishlist-item h3 {
+        font-size: 1.1rem;
+    }
+    
+    .wishlist-item p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-box {
+        max-width: 400px;
+        padding: 12px;
+        width: 98%;
+    }
+    
+    .profile-box h2 {
+        font-size: 1.3rem;
+    }
+    
+    .popup-menu {
+        width: 200px;
+        padding: 12px;
+        top: 8px;
+        right: 8px;
+    }
+    
+    .popup-menu h3 {
+        font-size: 1rem;
+    }
+    
+    .popup-menu a {
+        font-size: 0.85rem;
+        padding: 5px 8px;
+    }
+    
+    .wishlist-item {
+        padding: 10px;
+    }
+    
+    .wishlist-item h3 {
+        font-size: 1rem;
+    }
+    
+    .wishlist-item p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .profile-box {
+        max-width: 350px;
+        padding: 10px;
+    }
+    
+    .profile-box h2 {
+        font-size: 1.2rem;
+    }
+    
+    .popup-menu {
+        width: 180px;
+        padding: 10px;
+    }
+    
+    .popup-menu h3 {
+        font-size: 0.9rem;
+    }
+    
+    .popup-menu a {
+        font-size: 0.8rem;
+    }
+}

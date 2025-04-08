@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mont Célestage</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Raleway:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="welcome">
+        <p class="welcome-text">Bienvenue au </p>
+        <h1 class="main-title">Mont Célestage</h1>
+        <div class="spacer"></div>
+        <div id="login-form" class="login-form">
+            <h2>Connexion</h2>
+            <form>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-btn">Se connecter</button>
+            </form>
+        </div>
+        <button id="logout-btn" class="logout-btn" style="display: none;">Se déconnecter</button>
+    </div>
+    <div class="long-scroll"></div>
+    
+    <!-- Ajout de la boîte de profil et wishlist -->
+    <div id="profile-box" class="profile-box">
+        <div class="profile-section">
+            <h2>Mon Profil</h2>
+            <div class="profile-info">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="profile-details">
+                    <p id="profile-name"><i class="fas fa-user"></i> <span>...</span></p>
+                    <p id="profile-email"><i class="fas fa-envelope"></i> <span>...</span></p>
+                    <p id="profile-role"><i class="fas fa-id-badge"></i> <span>...</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="wishlist-section">
+            <h2>Ma Wishlist</h2>
+            <div id="wishlist-items" class="wishlist-items">
+                <div class="loader">Chargement...</div>
+            </div>
+            <div id="wishlist-pagination" class="wishlist-pagination">
+                <!-- Pagination sera ajoutée dynamiquement -->
+            </div>
+        </div>
+    </div>
+    
+    <div class="three-container" id="three-container"></div>
+    <div id="popup-menu" class="popup-menu">
+        <h3>Navigation</h3>
+        <ul>
+            <li><a href="/Gestion_offres.html">Liste d'offres</a></li>
+            <li><a href="/Gestion_des_entreprises.html">Liste d'entreprises</a></li>
+            <li class="admin-only"><a href="/Gestion_pilote.html">Gestion pilote</a></li>
+            <li class="admin-pilote-only"><a href="/Gestion_etudiant.html">Gestion des étudiants</a></li>
+        </ul>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+    <!-- Ajout du fichier JS pour la boîte de profil et wishlist -->
+    <script src="/src/profile.js"></script>
+</body>
+</html>

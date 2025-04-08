@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Offres</title>
+    <link rel="stylesheet" href="src/entreprises.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div id="three-container"></div>
+    <div class="container">
+        <h1>Liste des Offres</h1>
+        <ul>
+            <li><button id="searchBtn"><i class="fas fa-search"></i>Rechercher une offre</button></li>
+            <li><button id="createBtn" style="display: none;"><i class="fas fa-plus-circle"></i>Créer une offre</button></li>
+            <li><button id="editBtn" style="display: none;"><i class="fas fa-edit"></i>Modifier une offre</button></li>
+            <li><button id="deleteBtn" style="display: none;"><i class="fas fa-trash-alt"></i>Supprimer une offre</button></li>
+            <li><button id="myApplicationsBtn" style="display: none;"><i class="fas fa-file-alt"></i>Mes candidatures</button></li>
+            <li class="home-btn-container"><button id="homeBtn"><i class="fas fa-home"></i>Retour à l'accueil</button></li>
+        </ul>
+    </div>
+    
+    <div id="dashboard" class="dashboard">
+        <h2>Vue Globale des Stages</h2>
+        <div class="dashboard-controls">
+            <div class="dashboard-search">
+                <input type="text" id="dashboard-search-input" placeholder="Rechercher une offre...">
+                <button id="dashboard-search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="filter-section">
+                <label for="sort-options">Trier par:</label>
+                <select id="sort-options" class="dashboard-select">
+                    <option value="alphabetical">Alphabétique</option>
+                    <option value="company">Entreprise</option>
+                    <option value="date">Date de début</option>
+                    <option value="skills">Compétences</option>
+                    <option value="duration">Durée</option>
+                    <option value="wishlist">Wishlist</option>
+                </select>
+                <button id="refresh-dashboard" class="dashboard-btn"><i class="fas fa-sync-alt"></i> Rafraîchir</button>
+            </div>
+        </div>
+        <div class="dashboard-content">
+            <div id="offers-list" class="offers-list">
+                <!-- Les offres seront chargées ici dynamiquement -->
+                <div class="loader">Chargement des offres...</div>
+            </div>
+            <div id="dashboard-pagination" class="dashboard-pagination">
+                <!-- Pagination ajoutée dynamiquement -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="src/offres.js"></script>
+    <script>
+        // Attendre que le DOM soit chargé
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                // Vérifier le rôle de l'utilisateur
+                const response = await fetch('http://localhost/3Dsite%20version%201.3/check_session.php', {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                
+                if (!data.loggedIn) {
+                    window.location.href = '/index.html';
+                    return;
+                }
+
+                // Récupérer les boutons
+                const searchBtn = document.getElementById('searchBtn');
+                const createBtn = document.getElementById('createBtn');
+                const editBtn = document.getElementById('editBtn');
+                const deleteBtn = document.getElementById('deleteBtn');
+                const myApplicationsBtn = document.getElementById('myApplicationsBtn');
+                const homeBtn = document.getElementById('homeBtn');
+
+                // Masquer tous les boutons d'abord
+                createBtn.style.display = 'none';
+                editBtn.style.display = 'none';
+                deleteBtn.style.display = 'none';
+                myApplicationsBtn.style.display = 'none';
+
+                // Afficher les boutons selon le rôle
+                if (data.role === 'entreprise') {
+                    createBtn.style.display = 'block';
+                    editBtn.style.display = 'block';
+                    deleteBtn.style.display = 'block';
+                } else if (data.role === 'etudiant') {
+                    myApplicationsBtn.style.display = 'block';
+                } else if (data.role === 'pilote') {
+                    createBtn.style.display = 'block';
+                    editBtn.style.display = 'block';
+                    deleteBtn.style.display = 'block';
+                } else if (data.role === 'admin') {
+                    createBtn.style.display = 'block';
+                    editBtn.style.display = 'block';
+                    deleteBtn.style.display = 'block';
+                    myApplicationsBtn.style.display = 'block';
+                }
+
+                // Initialiser le dashboard
+                initDashboard();
+
+                // Ajouter les écouteurs d'événements uniquement pour les boutons visibles
+                searchBtn.addEventListener('click', function() { searchOffers(); });
+                homeBtn.addEventListener('click', function() { window.location.href = '/index.html'; });
+                
+                if (data.role === 'entreprise' || data.role === 'pilote' || data.role === 'admin') {
+                    createBtn.addEventListener('click', function() { createOffer(); });
+                    editBtn.addEventListener('click', function() { editOffer(); });
+                    deleteBtn.addEventListener('click', function() { deleteOffer(); });
+                }
+                if (data.role === 'etudiant' || data.role === 'admin') {
+                    myApplicationsBtn.addEventListener('click', function() { showMyApplications(); });
+                }
+            } catch (error) {
+                console.error('Erreur lors de la vérification du rôle:', error);
+                window.location.href = '/index.html';
+            }
+        });
+    </script>
+</body>
+</html>
