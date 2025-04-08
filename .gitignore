@@ -23,16 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 
-# Exclude large 3D model files
+# Exclude large files but keep mountain models
 *.obj
-*.fbx
-*.glb
-*.gltf
+!public/assets/mountain*.obj
 *.mtl
-*.stl
-*.3ds
-*.dae
-*.blend
+!public/assets/mountain*.mtl
 *.zip
 *.rar
 *.7z
